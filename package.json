@@ -1,0 +1,58 @@
+{
+  "name": "astro-bun-adapter",
+  "version": "1.0.2",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ido-pluto/astro-bun-adapter.git"
+  },
+  "homepage": "https://github.com/ido-pluto/astro-bun-adapter.git#readme",
+  "bugs": {
+    "url": "https://github.com/ido-pluto/astro-bun-adapter/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/ido-pluto"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./server.js": "./dist/server.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "license": "MIT",
+  "author": "Ido S.",
+  "scripts": {
+    "build": "tsc && bun build --external 'astro' --target bun src/**.ts --outdir dist/",
+    "format": "prettier -w \"src/**/*\" --ignore-unknown --cache",
+    "prepack": "npm run build",
+    "release": "semantic-release"
+  },
+  "keywords": [
+    "astro-adapter",
+    "bun",
+    "withastro"
+  ],
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "astro": "^4.0.7",
+    "bun-types": "latest",
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.0",
+    "semantic-release": "^22.0.12",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "astro": "^4.0.7"
+  }
+}
