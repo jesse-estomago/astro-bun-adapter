@@ -49,6 +49,7 @@ function start(manifest, options) {
   const handle = handler(manifest, options);
   _server = Bun.serve({
     port: options.port,
+    reusePort: true,
     hostname: getResolvedHostForHttpServer(options.host),
     fetch: handle,
     error(error) {
